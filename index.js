@@ -14,7 +14,7 @@ async function getPikachu() {
     })
     .finally(() => alert("la promesa termino"));
 
-  //h4.textContent = pikachu.species.name;
+  h4.textContent = pikachu.species.name;
 
   if (pikachu !== null) {
     for (i = 0; i < 10; i++) {
