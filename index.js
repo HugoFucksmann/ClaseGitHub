@@ -14,8 +14,6 @@ async function getPikachu() {
     })
     .finally(() => alert("la promesa termino"));
 
-  console.log(pikachu);
-
   h4.textContent = pikachu.species.name;
 
   if (pikachu !== null) {
@@ -26,16 +24,6 @@ async function getPikachu() {
       ul.appendChild(li);
     }
   }
-}
-
-async function getAllPokemons(name, age, evolution) {
-  const pokemons = await fetch(
-    "https://pokeapi.co/api/v2/pokemon?limit=12&offset=0"
-  )
-    .then((res) => res.json())
-    .catch((e) => console.log(e));
-
-  console.log("pokemons ", pokemons);
 }
 
 getPikachu();
