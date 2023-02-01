@@ -12,30 +12,25 @@ async function getPikachu() {
       console.warn("El error es: ", e);
       return null;
     })
+    .then((res) => {
+      console.log(res);
+      return {
+        name: res.species.name,
+        movimientos: res.moves,
+      };
+    })
     .finally(() => alert("la promesa termino"));
 
-  console.log(pikachu);
-
-  h4.textContent = pikachu.species.name;
-
+  h4.textContent = pikachu.name;
+  console.log("pikachu ", pikachu);
   if (pikachu !== null) {
     for (i = 0; i < 10; i++) {
       let li = document.createElement("li");
-      li.textContent = pikachu.moves[i].move.name;
+      li.textContent = pikachu.movimientos[i].move.name;
 
       ul.appendChild(li);
     }
   }
-}
-
-async function getAllPokemons(name, age, evolution) {
-  const pokemons = await fetch(
-    "https://pokeapi.co/api/v2/pokemon?limit=12&offset=0"
-  )
-    .then((res) => res.json())
-    .catch((e) => console.log(e));
-
-  console.log("pokemons ", pokemons);
 }
 
 getPikachu();
