@@ -13,6 +13,7 @@ async function getPikachu() {
       return null;
     })
     .then((res) => {
+      console.log(res);
       return {
         name: res.species.name,
         movimientos: res.moves,
