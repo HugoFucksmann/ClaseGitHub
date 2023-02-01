@@ -16,6 +16,8 @@ async function getPikachu() {
 
   console.log(pikachu);
 
+  h4.textContent = pikachu.species.name;
+
   if (pikachu !== null) {
     for (i = 0; i < 10; i++) {
       let li = document.createElement("li");
