@@ -12,14 +12,20 @@ async function getPikachu() {
       console.warn("El error es: ", e);
       return null;
     })
+    .then((res) => {
+      return {
+        name: res.species.name,
+        movimientos: res.moves,
+      };
+    })
     .finally(() => alert("la promesa termino"));
 
-  h4.textContent = pikachu.species.name;
-
+  h4.textContent = pikachu.name;
+  console.log("pikachu ", pikachu);
   if (pikachu !== null) {
     for (i = 0; i < 10; i++) {
       let li = document.createElement("li");
-      li.textContent = pikachu.moves[i].move.name;
+      li.textContent = pikachu.movimientos[i].move.name;
 
       ul.appendChild(li);
     }
