@@ -3,6 +3,7 @@ let ul = document.getElementById("listMoves");
 
 async function getPikachu() {
   const pikachu = await fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
+<<<<<<< HEAD
     .then((res) => {
       if (res.status !== 200) throw Error;
       console.log(res);
@@ -15,13 +16,20 @@ async function getPikachu() {
     .finally(() => alert("Se sigue ejecutando"));
 
   console.log(pikachu);
+=======
+    .then((res) => res.json())
+    .catch((e) => {
+      console.warn("El error es: ", e);
+      return null;
+    });
+>>>>>>> nuevaFuncion
 
   h4.textContent = pikachu.species.name;
 
   if (pikachu !== null) {
     for (i = 0; i < 10; i++) {
       let li = document.createElement("li");
-      li.textContent = pikachu.moves[i].move.name;
+      li.textContent = "Movimiento: " + pikachu.moves[i].move.name;
 
       ul.appendChild(li);
     }
