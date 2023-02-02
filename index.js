@@ -5,14 +5,14 @@ async function getPikachu() {
   const pikachu = await fetch("https://pokeapi.co/api/v2/pokemon/pikachu")
     .then((res) => {
       if (res.status !== 200) throw Error;
-
+      console.log(res);
       return res.json();
     })
     .catch((e) => {
       console.warn("El error es: ", e);
       return null;
     })
-    .finally(() => alert("la promesa termino"));
+    .finally(() => alert("Se sigue ejecutando"));
 
   console.log(pikachu);
 
